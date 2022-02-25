@@ -53,5 +53,16 @@
         <sqlFile encoding="utf8" path="./sql/11.create-bookings-table.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="create-view-usersaddressescountry" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="./sql/12.create-view-usersaddressescountry.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="create-view-userscontents" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="./sql/13.create-view-userscontents.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="create-materialize_view-driverstransport" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="./sql/14.create-materialize_view-driverstransport.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 
 </databaseChangeLog> 
