@@ -18,13 +18,15 @@ import java.util.Set;
 @AllArgsConstructor
 @Table(name = "drivers")
 public class Driver extends BaseEntity {
+
     @Column(name = "first_name")
     private String firstName;
 
     @Column(name = "surname")
-    private String surName;
+    private String surname;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
-    private Transport transport;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn
+////    @JoinColumn(name = "id")
+//    private Transport transport;
 }

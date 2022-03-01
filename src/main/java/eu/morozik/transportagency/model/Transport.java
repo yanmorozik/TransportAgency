@@ -20,11 +20,11 @@ public class Transport extends BaseEntity {
     @Column(name="color")
     private String color;
 
-    @OneToMany(mappedBy = "transport")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport")
     private Set<Content> contents = new HashSet<>();
 
-    @OneToMany(mappedBy = "transport")
-    private Set<Driver> drivers = new HashSet<>();
+//    @OneToMany(mappedBy = "transport")
+//    private Set<Driver> drivers = new HashSet<>();
 
     @OneToOne
     @JoinColumn(name = "type_transport_id",referencedColumnName = "id")

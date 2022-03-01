@@ -32,6 +32,7 @@ public class Content extends BaseEntity {
     private float entityName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn
+    //@JoinColumn(name = "id",insertable = false,updatable = false)
     private Transport transport;
 }

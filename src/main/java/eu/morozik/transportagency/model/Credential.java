@@ -20,4 +20,5 @@ public class Credential extends BaseEntity{
 
     @OneToOne(fetch = FetchType.LAZY, mappedBy = "credential")
     private User user;
+
 }
