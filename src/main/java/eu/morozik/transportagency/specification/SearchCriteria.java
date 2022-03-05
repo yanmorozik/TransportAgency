@@ -1,4 +1,4 @@
-package eu.morozik.transportagency.specification.secondrealization;
+package eu.morozik.transportagency.specification;
 
 import lombok.*;
 

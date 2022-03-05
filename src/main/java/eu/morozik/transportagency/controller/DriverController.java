@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 public class DriverController {
 
     private final DriverService driverService;
-    private final DriverDao driverDao;
 
     @PostMapping
     public DriverDto save(@RequestBody DriverDto driverDto) {
@@ -45,11 +44,6 @@ public class DriverController {
     @GetMapping("/findByFirstName/{firstName}")
     public DriverDto findByFirstName(@PathVariable String firstName) throws Exception {
         return driverService.findByFirstName(firstName);
-    }
-
-    @GetMapping("/findAllByFirstNameInSpecification/{firstName}")
-    public List<DriverDto> findAllByFirstNameInSpecification(@PathVariable String firstName) {
-        return driverService.findAllByFirstNameInSpecification(firstName);
     }
 
     @GetMapping("/findAllByFirstNameInSpecificationWithSpecification")

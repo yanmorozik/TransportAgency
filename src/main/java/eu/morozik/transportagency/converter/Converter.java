@@ -3,6 +3,7 @@ package eu.morozik.transportagency.converter;
 import eu.morozik.transportagency.model.BaseEntity;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;

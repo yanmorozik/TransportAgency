@@ -1,6 +1,8 @@
-package eu.morozik.transportagency.specification.secondrealization;
+package eu.morozik.transportagency.specification.contentspecification;
 
+import eu.morozik.transportagency.model.Content;
 import eu.morozik.transportagency.model.Driver;
+import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.jpa.domain.Specification;
@@ -12,11 +14,12 @@ import javax.persistence.criteria.Root;
 
 @Data
 @AllArgsConstructor
-public class DriverSpecificationImprove implements Specification<Driver> {
+public class ContentSpecification implements Specification<Content> {
+
     private SearchCriteria criteria;
 
     @Override
-    public Predicate toPredicate (Root<Driver> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+    public Predicate toPredicate (Root<Content> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 
         if (criteria.getOperation().equalsIgnoreCase(">")) {
             return builder.greaterThanOrEqualTo(

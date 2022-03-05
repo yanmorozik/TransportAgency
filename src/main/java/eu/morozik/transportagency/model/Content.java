@@ -20,19 +20,18 @@ public class Content extends BaseEntity {
     private Integer count;
 
     @Column(name = "weight")
-    private float weight;
+    private Float weight;
 
     @Column(name = "height")
-    private float height;
+    private Float height;
 
     @Column(name = "width")
-    private float width;
+    private Float width;
 
     @Column(name = "entity_name")
-    private float entityName;
+    private String entityName;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn
-    //@JoinColumn(name = "id",insertable = false,updatable = false)
+    @JoinColumn(name = "id",insertable = false,updatable = false)
     private Transport transport;
 }
