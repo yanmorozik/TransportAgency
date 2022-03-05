@@ -14,4 +14,8 @@ public interface DriverService {
     void deleteById(Long id);
 
     DriverDto findByFirstName(String firstname);
+
+    List<DriverDto> findAllByFirstNameInSpecification(String firstName);
+
+    List<DriverDto> findAllByFirstNameWithSpecification(String key,String operation,String value) ;
 }

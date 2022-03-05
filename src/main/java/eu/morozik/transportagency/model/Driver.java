@@ -25,8 +25,7 @@ public class Driver extends BaseEntity {
     @Column(name = "surname")
     private String surname;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn
-////    @JoinColumn(name = "id")
-//    private Transport transport;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", updatable = false,insertable = false)
+    private Transport transport;
 }

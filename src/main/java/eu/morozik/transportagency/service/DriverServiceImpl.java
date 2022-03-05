@@ -5,19 +5,21 @@ import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.converter.DriverConverter;
 import eu.morozik.transportagency.dto.DriverDto;
 import eu.morozik.transportagency.model.Driver;
-import org.springframework.beans.factory.annotation.Autowired;
+import eu.morozik.transportagency.specification.firstrealization.DriverSpecification;
+import eu.morozik.transportagency.specification.secondrealization.DriverSpecificationImprove;
+import eu.morozik.transportagency.specification.secondrealization.SearchCriteria;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class DriverServiceImpl implements DriverService {
 
-    @Autowired
-    public DriverDao driverDao;
+    public final DriverDao driverDao;
 
-    @Autowired
-    public DriverConverter driverConverter;
+    public final DriverConverter driverConverter;
 
     @Override
     public DriverDto save(DriverDto driverDto) {
@@ -47,5 +49,18 @@ public class DriverServiceImpl implements DriverService {
     public DriverDto findByFirstName(String firstname) {
         Driver response = driverDao.findByFirstName(firstname);
         return driverConverter.convert(response);
+    }
+
+    @Override
+    public List<DriverDto> findAllByFirstNameInSpecification(String firstName) {
+        List<Driver> drivers = driverDao.findAll(DriverSpecification.driverFirstNameIs(firstName));
+        return driverConverter.convert(drivers);
+    }
+
+    @Override
+    public List<DriverDto> findAllByFirstNameWithSpecification(String key,String operation,String value) {
+        DriverSpecificationImprove driverSpecification = new DriverSpecificationImprove(new SearchCriteria(key,operation,value));
+        List<Driver> drivers = driverDao.findAll(driverSpecification);
+        return driverConverter.convert(drivers);
     }
 }
