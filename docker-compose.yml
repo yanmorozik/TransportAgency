@@ -8,9 +8,15 @@ services:
       - 'POSTGRES_USER=postgres'
       - 'POSTGRES_PASSWORD=postgres'
       - 'POSTGRES_DB=TransportAgencyData'
+    volumes:
+      - ./pg_data:/var/lib/postgresql/pgdata
+    ports:
+      - "45432:5432"
 
   app:
     build: ./
     container_name: 'java-app'
     ports:
       - "8080:8080"
+    links:
+      - postgres
