@@ -1,10 +1,6 @@
 package eu.morozik.transportagency.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -14,6 +10,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "drivers")
@@ -25,7 +22,8 @@ public class Driver extends BaseEntity {
     @Column(name = "surname")
     private String surname;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id", updatable = false,insertable = false)
     private Transport transport;
 }

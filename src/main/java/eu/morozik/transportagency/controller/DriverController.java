@@ -1,17 +1,12 @@
 package eu.morozik.transportagency.controller;
 
-import eu.morozik.transportagency.api.dao.DriverDao;
 import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.dto.DriverDto;
-import eu.morozik.transportagency.model.Driver;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @RestController
 @RequiredArgsConstructor

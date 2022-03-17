@@ -16,9 +16,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DriverServiceImpl implements DriverService {
 
-    public final DriverDao driverDao;
-
-    public final DriverConverter driverConverter;
+    private final DriverDao driverDao;
+    private final DriverConverter driverConverter;
 
     @Override
     public DriverDto save(DriverDto driverDto) {
