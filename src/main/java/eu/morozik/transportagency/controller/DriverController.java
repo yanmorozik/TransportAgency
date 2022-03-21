@@ -36,8 +36,8 @@ public class DriverController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/findByFirstName/{firstName}")
-    public DriverDto findByFirstName(@PathVariable String firstName) throws Exception {
+    @GetMapping("/findByFirstName")
+    public DriverDto findByFirstName(@RequestParam String firstName) throws Exception {
         return driverService.findByFirstName(firstName);
     }
 

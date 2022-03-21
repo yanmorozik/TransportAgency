@@ -1,7 +1,9 @@
-package eu.morozik.transportagency.api.dao;
+package eu.morozik.transportagency.dao;
 
+import eu.morozik.transportagency.api.dao.DriverDao;
 import eu.morozik.transportagency.model.Driver;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -10,8 +12,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static eu.morozik.transportagency.ptototype.DriverPrototype.aDriver;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
 @DataJpaTest
+//@ExtendWith({})
 class DriverDaoTest {
 
     @Autowired

@@ -21,6 +21,7 @@ public class DriverPrototype {
 
     public static DriverDto aDriverDto(){
         return DriverDto.builder()
+                .id(1L)
                 .firstName("test")
                 .surname("test")
                 .build();
