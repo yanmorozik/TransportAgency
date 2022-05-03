@@ -1,5 +1,7 @@
 package eu.morozik.transportagency.model;
 
+import eu.morozik.transportagency.model.enums.Role;
+import eu.morozik.transportagency.model.enums.Status;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,9 +21,11 @@ public class User {
     private String firstName;
     @Column(name = "surname")
     private String surname;
+
     @Enumerated(value = EnumType.STRING)
     @Column(name = "role")
     private Role role;
+
     @Enumerated(value = EnumType.STRING)
     @Column(name = "status")
     private Status status;

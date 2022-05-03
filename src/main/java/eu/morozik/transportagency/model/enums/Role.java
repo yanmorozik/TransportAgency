@@ -1,5 +1,6 @@
-package eu.morozik.transportagency.model;
+package eu.morozik.transportagency.model.enums;
 
+import eu.morozik.transportagency.model.enums.Permission;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Set;
@@ -7,8 +8,8 @@ import java.util.stream.Collectors;
 
 public enum Role {
 
-    USER_ROLE(Set.of(Permission.DRIVERS_READ)),
-    ADMIN_ROLE(Set.of(Permission.DRIVERS_READ, Permission.DRIVERS_WRITE));
+    USER(Set.of(Permission.DRIVERS_READ)),
+    ADMIN(Set.of(Permission.DRIVERS_READ, Permission.DRIVERS_WRITE));
 
     private final Set<Permission> permissions;
 

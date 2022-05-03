@@ -1,6 +1,6 @@
 package eu.morozik.transportagency.security;
 
-import eu.morozik.transportagency.model.Status;
+import eu.morozik.transportagency.model.enums.Status;
 import eu.morozik.transportagency.model.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

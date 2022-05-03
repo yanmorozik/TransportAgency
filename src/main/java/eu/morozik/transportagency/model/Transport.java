@@ -1,5 +1,6 @@
 package eu.morozik.transportagency.model;
 
+import eu.morozik.transportagency.model.enums.PurposeTransport;
 import lombok.*;
 
 import javax.persistence.*;

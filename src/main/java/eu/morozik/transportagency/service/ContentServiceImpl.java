@@ -29,7 +29,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public ContentDto findById(Long id) throws Exception {
-        Content response = contentDao.findById(id).orElseThrow(Exception::new);
+            Content response = contentDao.findById(id).orElseThrow(Exception::new);
         return contentConverter.convert(response);
     }
 

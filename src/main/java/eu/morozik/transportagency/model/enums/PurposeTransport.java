@@ -1,4 +1,4 @@
-package eu.morozik.transportagency.model;
+package eu.morozik.transportagency.model.enums;
 
 
 public enum PurposeTransport {
