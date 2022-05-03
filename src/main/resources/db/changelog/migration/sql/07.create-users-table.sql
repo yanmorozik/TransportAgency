@@ -1,9 +1,11 @@
 create table users
 (
     id            bigserial primary key,
-    credential_id int8 references credentials (id),
+    email         varchar(128),
     first_name    varchar(64),
     surname       varchar(64),
-    telephone     varchar(64),
-    email         varchar(128)
+    password      varchar (255),
+    role          varchar (20) default 'USER',
+    status        varchar(20) default 'ACTIVE',
+    UNIQUE (email)
 )

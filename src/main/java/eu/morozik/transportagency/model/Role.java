@@ -1,23 +1,29 @@
 package eu.morozik.transportagency.model;
 
-import lombok.*;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-@Getter
-@Setter
-@Entity
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "roles")
-public class Role extends BaseEntity{
-    @Column(name = "name_role")
-    private String nameRole;
+public enum Role {
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles",cascade = CascadeType.ALL)
-    @ToString.Exclude
-    private Set<User> users = new HashSet<>();
+    USER_ROLE(Set.of(Permission.DRIVERS_READ)),
+    ADMIN_ROLE(Set.of(Permission.DRIVERS_READ, Permission.DRIVERS_WRITE));
+
+    private final Set<Permission> permissions;
+
+    Role(Set<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
+    public Set<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public Set<SimpleGrantedAuthority> getAuthorities() {
+        return getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
+                .collect(Collectors.toSet());
+    }
+
 }
