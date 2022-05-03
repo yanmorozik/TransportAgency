@@ -21,9 +21,11 @@ public class Transport extends BaseEntity {
     private String color;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport")
+    @ToString.Exclude
     private Set<Content> contents = new HashSet<>();
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "transport")
+    @ToString.Exclude
     private Set<Driver> drivers = new HashSet<>();
 
     @OneToOne
@@ -38,5 +40,6 @@ public class Transport extends BaseEntity {
             CascadeType.MERGE,
             CascadeType.REFRESH,
             CascadeType.PERSIST})
+    @ToString.Exclude
     private Set<Booking> bookings = new HashSet<>();
 }

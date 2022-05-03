@@ -13,56 +13,52 @@
         <sqlFile encoding="utf8" path="db/changelog/migration/sql/01.create-drivers-table.sql"/>
     </changeSet>
 
-    <changeSet id="create-table-purposes_transport" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/02.create-purposes_transport-table.sql"/>
-    </changeSet>
-
     <changeSet id="create-table-contents" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/03.create-contents-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/02.create-contents-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-types_transport" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/04.create-types_transport-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/03.create-types_transport-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-addresses" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/05.create-addresses-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/04.create-addresses-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-roles" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/06.create-roles-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/05.create-roles-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-credentials" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/07.create-credentials-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/06.create-credentials-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-users" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/08.create-users-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/07.create-users-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-transports" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/09.create-transports-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/08.create-transports-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-user_role" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/10.create-user_role-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/09.create-user_role-table.sql"/>
     </changeSet>
 
     <changeSet id="create-table-bookings" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/11.create-bookings-table.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/10.create-bookings-table.sql"/>
     </changeSet>
 
     <changeSet id="create-view-usersaddressescountry" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/12.create-view-usersaddressescountry.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/11.create-view-usersaddressescountry.sql"/>
     </changeSet>
 
     <changeSet id="create-view-userscontents" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/13.create-view-userscontents.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/12.create-view-userscontents.sql"/>
     </changeSet>
 
     <changeSet id="create-materialize_view-driverstransport" author="Yan Morozik">
-        <sqlFile encoding="utf8" path="db/changelog/migration/sql/14.create-materialize_view-driverstransport.sql"/>
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/13.create-materialize_view-driverstransport.sql"/>
     </changeSet>
 
 </databaseChangeLog> 

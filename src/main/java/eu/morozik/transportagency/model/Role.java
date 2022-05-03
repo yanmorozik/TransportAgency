@@ -18,5 +18,6 @@ public class Role extends BaseEntity{
     private String nameRole;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles",cascade = CascadeType.ALL)
+    @ToString.Exclude
     private Set<User> users = new HashSet<>();
 }
