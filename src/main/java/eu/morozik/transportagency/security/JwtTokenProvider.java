@@ -1,7 +1,11 @@
 package eu.morozik.transportagency.security;
 
 import eu.morozik.transportagency.exception.JwtAuthenticationException;
-import io.jsonwebtoken.*;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -72,6 +76,11 @@ public class JwtTokenProvider {
     }
 
     public String resolveToken(HttpServletRequest request){
-        return request.getHeader(authorizationHeader);
+        String bearerToken = request.getHeader("Authorization");
+        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
+            return bearerToken.substring(7);
+        }
+        return null;
+        //return request.getHeader(authorizationHeader);
     }
 }
