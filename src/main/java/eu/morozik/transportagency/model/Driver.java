@@ -23,7 +23,11 @@ public class Driver extends BaseEntity {
     private String surname;
 
     @ToString.Exclude
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST})
     @JoinColumn(name = "id", updatable = false,insertable = false)
     private Transport transport;
 }

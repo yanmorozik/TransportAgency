@@ -9,3 +9,5 @@ public class Application {
         SpringApplication.run(Application.class,args);
     }
 }
+//удаление водителей с ссылкой на транспорт!!!
+//изменил табличку в migratin(ресурсы)

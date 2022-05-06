@@ -1,5 +1,6 @@
 package eu.morozik.transportagency.model;
 
+import eu.morozik.transportagency.model.enums.PurposeTransport;
 import lombok.*;
 
 import javax.persistence.*;
@@ -21,9 +22,15 @@ public class Transport extends BaseEntity {
     private String color;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport")
+    @ToString.Exclude
     private Set<Content> contents = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "transport")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "transport",cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST})
+    @ToString.Exclude
     private Set<Driver> drivers = new HashSet<>();
 
     @OneToOne
@@ -38,5 +45,6 @@ public class Transport extends BaseEntity {
             CascadeType.MERGE,
             CascadeType.REFRESH,
             CascadeType.PERSIST})
+    @ToString.Exclude
     private Set<Booking> bookings = new HashSet<>();
 }
