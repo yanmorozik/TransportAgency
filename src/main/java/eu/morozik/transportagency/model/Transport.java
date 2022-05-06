@@ -25,7 +25,11 @@ public class Transport extends BaseEntity {
     @ToString.Exclude
     private Set<Content> contents = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "transport")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "transport",cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST})
     @ToString.Exclude
     private Set<Driver> drivers = new HashSet<>();
 
