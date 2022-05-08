@@ -1,13 +1,11 @@
 package eu.morozik.transportagency.api.dao;
 
+import eu.morozik.transportagency.model.Address;
 import eu.morozik.transportagency.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface UserDao extends JpaRepository<User, Long> {
-    Optional<User> findByEmail(String email);
-    User findFirstById(Long id);
+public interface AddressDao extends JpaRepository<Address,Long> {
+    Address findFirstById(Long id);
 }

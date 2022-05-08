@@ -5,23 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContentDto {
+public class AddressDto {
 
     private Long id;
 
-    private Integer count;
+    private String country;
 
-    private Float weight;
+    private String city;
 
-    private Float height;
+    private String street;
 
-    private Float width;
+    private String house;
 
-    private String entityName;
+    private Integer apartment;
 }

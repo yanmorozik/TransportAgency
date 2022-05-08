@@ -9,6 +9,7 @@ import eu.morozik.transportagency.specification.SearchCriteria;
 import eu.morozik.transportagency.specification.contentspecification.ContentSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class ContentServiceImpl implements ContentService {
 
     public final ContentConverter contentConverter;
 
+    @Transactional
     @Override
     public ContentDto save(ContentDto contentDto) {
         Content content = contentConverter.convert(contentDto);
@@ -27,23 +29,26 @@ public class ContentServiceImpl implements ContentService {
         return contentConverter.convert(response);
     }
 
+    @Transactional
     @Override
     public ContentDto findById(Long id) throws Exception {
             Content response = contentDao.findById(id).orElseThrow(Exception::new);
         return contentConverter.convert(response);
     }
 
+    @Transactional
     @Override
     public List<ContentDto> findAll() {
         List<Content> contents = contentDao.findAll();
         return contentConverter.convert(contents);
     }
-
+    @Transactional
     @Override
     public void deleteById(Long id) {
         contentDao.deleteById(id);
     }
 
+    @Transactional
     @Override
     public List<ContentDto> findByAnyFieldWithSpecification(String key,String operation,String value) {
         ContentSpecification contentSpecification = new ContentSpecification(new SearchCriteria(key,operation,value));

@@ -3,12 +3,15 @@ package eu.morozik.transportagency.model;
 import eu.morozik.transportagency.model.enums.Role;
 import eu.morozik.transportagency.model.enums.Status;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity{

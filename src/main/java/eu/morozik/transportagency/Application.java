@@ -11,3 +11,6 @@ public class Application {
 }
 //удаление водителей с ссылкой на транспорт!!!
 //изменил табличку в migratin(ресурсы)
+//обновление заказа!!!
+//More than one row with the given identifier was found: 1,
+//разобраться с удаление контент->транспорт->...

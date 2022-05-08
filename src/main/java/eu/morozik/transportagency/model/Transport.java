@@ -10,7 +10,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "transports")
@@ -21,7 +20,7 @@ public class Transport extends BaseEntity {
     @Column(name="color")
     private String color;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport",cascade = CascadeType.ALL,orphanRemoval = true)
     @ToString.Exclude
     private Set<Content> contents = new HashSet<>();
 
@@ -33,7 +32,7 @@ public class Transport extends BaseEntity {
     @ToString.Exclude
     private Set<Driver> drivers = new HashSet<>();
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_transport_id",referencedColumnName = "id")
     private TypeTransport typeTransport;
 

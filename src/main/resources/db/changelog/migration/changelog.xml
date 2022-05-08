@@ -37,4 +37,32 @@
         <sqlFile encoding="utf8" path="db/changelog/migration/sql/10.create-bookings-table.sql"/>
     </changeSet>
 
+    <changeSet id="insert-table-users" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/11.insert-users-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-drivers" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/12.insert-drivers-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-contents" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/13.insert-contents-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-type_transport" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/14.insert-type_transport-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-addresses" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/15.insert-addresses-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-transports" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/16.insert-transports-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-bookings" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/17.insert-bookings-table.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
