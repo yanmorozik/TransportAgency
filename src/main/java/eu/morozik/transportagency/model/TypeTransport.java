@@ -16,7 +16,7 @@ public class TypeTransport extends BaseEntity {
     @Column(name = "type_name")
     private String typeName;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "typeTransport")
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = "typeTransport",cascade = CascadeType.ALL)
     private Transport transport;
 
 }

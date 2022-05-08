@@ -1,5 +1,6 @@
-package eu.morozik.transportagency.dto;
+package eu.morozik.transportagency.dto.booking;
 
+import eu.morozik.transportagency.dto.UserWithBookingDto;
 import lombok.*;
 
 import java.time.LocalDateTime;

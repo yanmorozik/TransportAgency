@@ -32,18 +32,22 @@ public class Transport extends BaseEntity {
     @ToString.Exclude
     private Set<Driver> drivers = new HashSet<>();
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_transport_id",referencedColumnName = "id")
-    private TypeTransport typeTransport;
-
-    @Enumerated(EnumType.STRING)
-    private PurposeTransport purposeTransport;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport", cascade = {
+    @OneToOne(fetch = FetchType.LAZY,cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.REFRESH,
             CascadeType.PERSIST})
+    @JoinColumn(name = "type_transport_id",referencedColumnName = "id")
+    private TypeTransport typeTransport;
+
+    @Enumerated(EnumType.STRING)
+        private PurposeTransport purposeTransport;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport", /*cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST}*/cascade = CascadeType.ALL)
     @ToString.Exclude
     private Set<Booking> bookings = new HashSet<>();
 }

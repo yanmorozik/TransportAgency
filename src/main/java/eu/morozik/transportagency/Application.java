@@ -14,3 +14,4 @@ public class Application {
 //обновление заказа!!!
 //More than one row with the given identifier was found: 1,
 //разобраться с удаление контент->транспорт->...
+//!!не удоляется аддрес при удаление контента

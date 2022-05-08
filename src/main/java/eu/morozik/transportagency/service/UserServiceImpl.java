@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,31 +26,37 @@ public class UserServiceImpl implements UserService {
 
     private final PasswordEncoder passwordEncoder;
 
+    @Transactional
     @Override
     public UserDto save(UserDto userDto) {
         return null;
     }
 
+    @Transactional
     @Override
     public UserDto findById(Long id) throws Exception {
         return null;
     }
 
+    @Transactional
     @Override
     public List<UserDto> findAll() {
         return null;
     }
 
+    @Transactional
     @Override
     public void deleteById(Long id) {
 
     }
 
+    @Transactional
     @Override
     public UserDto findByFirstName(String firstname) {
         return null;
     }
 
+    @Transactional
     @Override
     public UserDto register(UserDto userDto) {
         Role role = Role.USER;

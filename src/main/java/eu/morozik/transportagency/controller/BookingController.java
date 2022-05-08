@@ -1,10 +1,8 @@
 package eu.morozik.transportagency.controller;
 
-import eu.morozik.transportagency.api.service.AddressService;
 import eu.morozik.transportagency.api.service.BookingService;
-import eu.morozik.transportagency.dto.AddressDto;
-import eu.morozik.transportagency.dto.BookingDto;
-import eu.morozik.transportagency.dto.BookingWithRelationIdsDto;
+import eu.morozik.transportagency.dto.booking.BookingDto;
+import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,8 +18,8 @@ public class BookingController {
 
     @PostMapping
     @PreAuthorize("hasAuthority('drivers:write')")
-    public BookingDto save(@RequestBody BookingWithRelationIdsDto BookingWithRelationIdsDto) {
-        return bookingService.save(BookingWithRelationIdsDto);
+    public BookingDto save(@RequestBody BookingWithRelationIdsDto bookingWithRelationIdsDto) {
+        return bookingService.save(bookingWithRelationIdsDto);
     }
 
     @GetMapping("/{id}")

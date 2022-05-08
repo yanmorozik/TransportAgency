@@ -1,7 +1,7 @@
 package eu.morozik.transportagency.api.service;
 
-import eu.morozik.transportagency.dto.BookingDto;
-import eu.morozik.transportagency.dto.BookingWithRelationIdsDto;
+import eu.morozik.transportagency.dto.booking.BookingDto;
+import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 
 import java.util.List;
 

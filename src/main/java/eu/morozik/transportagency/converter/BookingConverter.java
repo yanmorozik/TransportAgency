@@ -1,6 +1,6 @@
 package eu.morozik.transportagency.converter;
 
-import eu.morozik.transportagency.dto.BookingDto;
+import eu.morozik.transportagency.dto.booking.BookingDto;
 import eu.morozik.transportagency.model.Booking;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

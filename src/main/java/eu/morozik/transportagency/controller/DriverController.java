@@ -1,6 +1,7 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.DriverService;
+import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.DriverDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("drivers")
+@RequestMapping("/drivers")
 public class DriverController {
 
     private final DriverService driverService;
@@ -23,15 +24,23 @@ public class DriverController {
     }
 
     @GetMapping("/{id}")
-    @PreAuthorize("hasAuthority('drivers:read')")
+    @PreAuthorize("hasAuthority('drivers:write')")
     public DriverDto findById(@PathVariable Long id) throws Exception {
         return driverService.findById(id);
     }
 
     @GetMapping
+    @PreAuthorize("hasAuthority('drivers:read')")
     public List<DriverDto> findAll() {
         return driverService.findAll();
     }
+
+    @PutMapping
+    @PreAuthorize("hasAuthority('drivers:write')")
+    public DriverDto update(@RequestBody DriverDto driverDto) {
+        return driverService.save(driverDto);
+    }
+
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasAuthority('drivers:write')")
@@ -41,6 +50,7 @@ public class DriverController {
     }
 
     @GetMapping("/findByFirstName")
+    @PreAuthorize("hasAuthority('drivers:read')")
     public DriverDto findByFirstName(@RequestParam String firstName) throws Exception {
         return driverService.findByFirstName(firstName);
     }
@@ -51,6 +61,4 @@ public class DriverController {
                                                                @RequestParam String value) {
         return driverService.findAllByFirstNameWithSpecification(key,operation,value);
     }
-
-
 }

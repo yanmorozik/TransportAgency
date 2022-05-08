@@ -1,4 +1,4 @@
-package eu.morozik.transportagency.dto;
+package eu.morozik.transportagency.dto.booking;
 
 import lombok.*;
 

@@ -1,10 +1,7 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.ContentService;
-import eu.morozik.transportagency.dto.BookingDto;
-import eu.morozik.transportagency.dto.BookingWithRelationIdsDto;
 import eu.morozik.transportagency.dto.ContentDto;
-import eu.morozik.transportagency.dto.DriverDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

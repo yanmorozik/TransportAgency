@@ -6,17 +6,15 @@ import eu.morozik.transportagency.api.dao.TransportDao;
 import eu.morozik.transportagency.api.dao.UserDao;
 import eu.morozik.transportagency.api.service.BookingService;
 import eu.morozik.transportagency.converter.BookingConverter;
-import eu.morozik.transportagency.converter.BookingConverterWithBookWithRelationIdsDto;
-import eu.morozik.transportagency.converter.Converter;
-import eu.morozik.transportagency.dto.BookingDto;
-import eu.morozik.transportagency.dto.BookingWithRelationIdsDto;
+import eu.morozik.transportagency.converter.BookingConverterWithRelationIdsDto;
+import eu.morozik.transportagency.dto.booking.BookingDto;
+import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import eu.morozik.transportagency.exception.NotFoundException;
 import eu.morozik.transportagency.model.Address;
 import eu.morozik.transportagency.model.Booking;
 import eu.morozik.transportagency.model.Transport;
 import eu.morozik.transportagency.model.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +29,7 @@ public class BookingServiceImpl implements BookingService {
     private final AddressDao addressDao;
     private final TransportDao transportDao;
     private final BookingConverter bookingConverter;
-    private final BookingConverterWithBookWithRelationIdsDto bookingWithRelationConverter;
+    private final BookingConverterWithRelationIdsDto bookingWithRelationConverter;
 
     @Transactional
     @Override

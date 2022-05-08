@@ -9,6 +9,7 @@ import eu.morozik.transportagency.specification.driverspecification.DriverSpecif
 import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class DriverServiceImpl implements DriverService {
     private final DriverDao driverDao;
     private final DriverConverter driverConverter;
 
+    @Transactional
     @Override
     public DriverDto save(DriverDto driverDto) {
         Driver driver = driverConverter.convert(driverDto);
@@ -26,29 +28,34 @@ public class DriverServiceImpl implements DriverService {
         return driverConverter.convert(response);
     }
 
+    @Transactional
     @Override
     public DriverDto findById(Long id) throws Exception {
         Driver response = driverDao.findById(id).orElseThrow(Exception::new);
         return driverConverter.convert(response);
     }
 
+    @Transactional
     @Override
     public List<DriverDto> findAll() {
         List<Driver> drivers = driverDao.findAll();
         return driverConverter.convert(drivers);
     }
 
+    @Transactional
     @Override
     public void deleteById(Long id) {
         driverDao.deleteById(id);
     }
 
+    @Transactional
     @Override
     public DriverDto findByFirstName(String firstname) {
         Driver response = driverDao.findByFirstName(firstname);
         return driverConverter.convert(response);
     }
 
+    @Transactional
     @Override
     public List<DriverDto> findAllByFirstNameWithSpecification(String key,String operation,String value) {
         DriverSpecification driverSpecification = new DriverSpecification(new SearchCriteria(key,operation,value));
