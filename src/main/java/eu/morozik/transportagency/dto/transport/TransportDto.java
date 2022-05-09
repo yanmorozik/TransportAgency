@@ -2,6 +2,7 @@ package eu.morozik.transportagency.dto.transport;
 
 import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.DriverDto;
+import eu.morozik.transportagency.dto.TypeTransportDto;
 import eu.morozik.transportagency.model.enums.PurposeTransport;
 import lombok.*;
 

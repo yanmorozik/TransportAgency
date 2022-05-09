@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,9 +19,9 @@ public class TransportWithRelationIdsDto {
 
     private String color;
 
-    private Set<Long> contentIds = new HashSet<>();
+    private List<Long> contentIds;
 
-    private Set<Long> driverIds = new HashSet<>();
+    private List<Long> driverIds;
 
     private Long typeTransportId;
 

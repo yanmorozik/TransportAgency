@@ -1,15 +1,17 @@
 package eu.morozik.transportagency.api.service;
 
 import eu.morozik.transportagency.dto.UserDto;
+import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
 
 import java.util.List;
 
 public interface UserService {
-    UserDto save(UserDto userDto);
 
     UserDto findById(Long id) throws Exception;
 
     List<UserDto> findAll();
+
+    UserDto update(UserWithRelationIdsDto userWithRelationIdsDto);
 
     void deleteById(Long id);
 

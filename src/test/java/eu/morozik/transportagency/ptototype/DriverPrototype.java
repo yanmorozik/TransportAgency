@@ -14,7 +14,7 @@ public class DriverPrototype {
         driver.setSurname("test");
 
         Transport transport = new Transport();
-        driver.setTransport(transport);
+       // driver.setTransport(transport);
 
         return driver;
     }

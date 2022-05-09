@@ -3,6 +3,8 @@ package eu.morozik.transportagency.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,7 +18,7 @@ public class TypeTransport extends BaseEntity {
     @Column(name = "type_name")
     private String typeName;
 
-    @OneToOne(fetch = FetchType.LAZY,mappedBy = "typeTransport",cascade = CascadeType.ALL)
-    private Transport transport;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "typeTransport",cascade = CascadeType.ALL,orphanRemoval = true)
+    private Set<Transport> transports= new HashSet<>();
 
 }

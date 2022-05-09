@@ -1,4 +1,4 @@
-package eu.morozik.transportagency.dto.transport;
+package eu.morozik.transportagency.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

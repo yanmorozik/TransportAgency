@@ -5,12 +5,8 @@ import eu.morozik.transportagency.api.dao.DriverDao;
 import eu.morozik.transportagency.api.dao.TransportDao;
 import eu.morozik.transportagency.api.dao.TypeTransportDao;
 import eu.morozik.transportagency.api.service.TransportService;
-import eu.morozik.transportagency.converter.BookingConverter;
-import eu.morozik.transportagency.converter.BookingConverterWithRelationIdsDto;
 import eu.morozik.transportagency.converter.TransportConverter;
 import eu.morozik.transportagency.converter.TransportConverterWithRelationIdsDto;
-import eu.morozik.transportagency.dto.booking.BookingDto;
-import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import eu.morozik.transportagency.dto.transport.TransportDto;
 import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 import eu.morozik.transportagency.exception.NotFoundException;
@@ -20,7 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -66,28 +64,27 @@ public class TransportServiceImpl implements TransportService {
     public Transport reassignment(TransportWithRelationIdsDto transportWithRelationIdsDto) {
         final Transport transport = transportWithRelationConverter.convert(transportWithRelationIdsDto);
 
-        Set<Content> contents =transportWithRelationIdsDto.getContentIds()
+
+        Set<Content> contents = transportWithRelationIdsDto.getContentIds()
                 .stream()
-                .map(id->contentDao.findById(id).orElseThrow(() -> new NotFoundException(id)))
+                .map(id -> contentDao.findById(id).orElseThrow(() -> new NotFoundException(id)))
                 .collect(Collectors.toSet());
 
         transport.setContents(contents);
 
-        Set<Driver>drivers=transportWithRelationIdsDto.getDriverIds()
+        Set<Driver> drivers = transportWithRelationIdsDto.getDriverIds()
                 .stream()
-                .map(id->driverDao.findById(id).orElseThrow(()->new NotFoundException(id)))
+                .map(id -> driverDao.findById(id).orElseThrow(() -> new NotFoundException(id)))
                 .collect(Collectors.toSet());
 
         transport.setDrivers(drivers);
 
-        TypeTransport typeTransport=typeTransportDao.findById(transportWithRelationIdsDto.getTypeTransportId())
-                .orElseThrow(()->new NotFoundException(transportWithRelationIdsDto.getTypeTransportId()));
+        TypeTransport typeTransport = typeTransportDao.findById(transportWithRelationIdsDto.getTypeTransportId())
+                .orElseThrow(() -> new NotFoundException(transportWithRelationIdsDto.getTypeTransportId()));
 
         transport.setTypeTransport(typeTransport);
 
-        PurposeTransport purposeTransport = PurposeTransport.MIXED;
-
-        transport.setPurposeTransport(purposeTransport);
+        transport.setPurposeTransport(PurposeTransport.getPurposeTransport(transportWithRelationIdsDto.getPurposeTransportId()));
 
         return transport;
     }

@@ -7,6 +7,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -31,7 +33,6 @@ public class Content extends BaseEntity {
     @Column(name = "entity_name")
     private String entityName;
 
-    @ManyToOne(fetch = FetchType.LAZY/*,cascade=CascadeType.ALL*/)
-    @JoinColumn(name = "id",insertable = false,updatable = false)
-    private Transport transport;
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "contents",cascade = CascadeType.ALL)
+    private Set<Transport> transports=new HashSet<>();
 }

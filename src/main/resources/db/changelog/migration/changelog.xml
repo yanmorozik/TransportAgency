@@ -65,4 +65,20 @@
         <sqlFile encoding="utf8" path="db/changelog/migration/sql/17.insert-bookings-table.sql"/>
     </changeSet>
 
+    <changeSet id="create-table-transport_content" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/18.create-transport_content-table.sql"/>
+    </changeSet>
+
+    <changeSet id="create-table-transport_driver" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/19.create-transport_driver-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-transport_driver" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/20.insert-transport_driver-table.sql"/>
+    </changeSet>
+
+    <changeSet id="insert-table-transport_content" author="Yan Morozik">
+        <sqlFile encoding="utf8" path="db/changelog/migration/sql/21.insert-transport_content-table.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
