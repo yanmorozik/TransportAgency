@@ -35,6 +35,10 @@ public class User extends BaseEntity{
     @Column(name = "status")
     private Status status;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade =  CascadeType.ALL/*{
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST}*/)
     private Set<Booking> bookings = new HashSet<>();
 }

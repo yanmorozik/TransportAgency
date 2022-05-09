@@ -30,7 +30,11 @@ public class Booking extends BaseEntity {
     @JoinColumn(name = "transport_id")
     private Transport transport;
 
-    @OneToOne(fetch = FetchType.LAZY,cascade =CascadeType.ALL,orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY/*,cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST},orphanRemoval = true*/)
     private Address address;
 
 }

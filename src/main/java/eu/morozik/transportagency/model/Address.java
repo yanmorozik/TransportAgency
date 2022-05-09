@@ -26,6 +26,6 @@ public class Address extends BaseEntity {
     @Column(name = "apartment")
     private Integer apartment;
 
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "address", cascade ={CascadeType.PERSIST,CascadeType.REMOVE} , fetch = FetchType.LAZY)
     private Booking booking;
 }

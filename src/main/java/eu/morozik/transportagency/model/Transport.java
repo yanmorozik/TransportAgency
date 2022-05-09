@@ -75,7 +75,11 @@ public class Transport extends BaseEntity {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.REFRESH,
-            CascadeType.PERSIST}*/cascade = CascadeType.ALL)
+            CascadeType.PERSIST}*/cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.REFRESH,
+            CascadeType.PERSIST})
     @ToString.Exclude
     private Set<Booking> bookings = new HashSet<>();
 }
