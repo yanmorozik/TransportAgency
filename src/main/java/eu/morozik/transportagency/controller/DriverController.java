@@ -1,7 +1,6 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.DriverService;
-import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.DriverDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -59,6 +58,6 @@ public class DriverController {
     public List<DriverDto> findAllByFirstNameWithSpecification(@RequestParam String key,
                                                                @RequestParam String operation,
                                                                @RequestParam String value) {
-        return driverService.findByAnyOneFieldWithSpecification(key,operation,value);
+        return driverService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

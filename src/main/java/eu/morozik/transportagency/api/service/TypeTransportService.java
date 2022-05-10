@@ -1,8 +1,6 @@
 package eu.morozik.transportagency.api.service;
 
 import eu.morozik.transportagency.dto.TypeTransportDto;
-import eu.morozik.transportagency.dto.transport.TransportDto;
-import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 
 import java.util.List;
 

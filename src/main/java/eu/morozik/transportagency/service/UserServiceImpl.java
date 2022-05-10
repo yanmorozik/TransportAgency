@@ -57,12 +57,6 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public UserDto findByFirstName(String firstname) {
-        return null;
-    }
-
-    @Transactional
-    @Override
     public UserDto register(UserDto userDto) {
         Role role = Role.USER;
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
@@ -78,7 +72,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public List<UserDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
-        UserSpecification userSpecification = new UserSpecification(new SearchCriteria(key,operation,value));
+        UserSpecification userSpecification = new UserSpecification(new SearchCriteria(key, operation, value));
         List<User> users = userDao.findAll(userSpecification);
         return userConverter.convert(users);
     }
@@ -88,7 +82,7 @@ public class UserServiceImpl implements UserService {
 
         user.setRole(Role.getRole(userWithRelationIdsDto.getRoleId()));
 
-       user.setStatus(Status.getStatus(userWithRelationIdsDto.getStatusId()));
+        user.setStatus(Status.getStatus(userWithRelationIdsDto.getStatusId()));
 
         return user;
     }

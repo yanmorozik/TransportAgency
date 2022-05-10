@@ -3,10 +3,10 @@ package eu.morozik.transportagency.model.enums;
 public enum Status {
     ACTIVE, BANNED;
 
-    public static Status getStatus(Long i){
-        if (i==1)
+    public static Status getStatus(Long i) {
+        if (i == 1)
             return ACTIVE;
-        if (i==2)
+        if (i == 2)
             return BANNED;
         return null;
     }

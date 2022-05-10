@@ -10,11 +10,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public enum Role {
-    //new HashSet<>(Arrays.asList("a", "b"));
 
-
-    USER(new HashSet<Permission> (Collections.singletonList(Permission.DRIVERS_READ))),
-    ADMIN(new HashSet<Permission>(Arrays.asList(Permission.DRIVERS_READ,Permission.DRIVERS_WRITE)));
+    USER(new HashSet<Permission>(Collections.singletonList(Permission.DRIVERS_READ))),
+    ADMIN(new HashSet<Permission>(Arrays.asList(Permission.DRIVERS_READ, Permission.DRIVERS_WRITE)));
 
     private final Set<Permission> permissions;
 
@@ -32,10 +30,10 @@ public enum Role {
                 .collect(Collectors.toSet());
     }
 
-    public static Role getRole(Long i){
-        if (i==1)
+    public static Role getRole(Long i) {
+        if (i == 1)
             return USER;
-        if (i==2)
+        if (i == 2)
             return ADMIN;
         return null;
     }

@@ -3,7 +3,6 @@ package eu.morozik.transportagency.controller;
 import eu.morozik.transportagency.api.service.UserService;
 import eu.morozik.transportagency.dto.UserDto;
 import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
-import eu.morozik.transportagency.dto.transport.TransportDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -46,8 +45,8 @@ public class UserController {
     @GetMapping("/search")
     @PreAuthorize("hasAuthority('drivers:read')")
     public List<UserDto> findByAnyFieldWithSpecification(@RequestParam String key,
-                                                              @RequestParam String operation,
-                                                              @RequestParam String value) {
+                                                         @RequestParam String operation,
+                                                         @RequestParam String value) {
         return userService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

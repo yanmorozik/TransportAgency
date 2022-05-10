@@ -1,7 +1,5 @@
 package eu.morozik.transportagency.converter;
 
-import eu.morozik.transportagency.converter.Converter;
-import eu.morozik.transportagency.dto.UserDto;
 import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
 import eu.morozik.transportagency.model.User;
 import org.modelmapper.ModelMapper;

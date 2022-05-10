@@ -2,7 +2,6 @@ package eu.morozik.transportagency.model;
 
 import eu.morozik.transportagency.model.enums.Role;
 import eu.morozik.transportagency.model.enums.Status;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity{
+public class User extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,10 +34,6 @@ public class User extends BaseEntity{
     @Column(name = "status")
     private Status status;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade =  CascadeType.ALL/*{
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-            CascadeType.PERSIST}*/)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Booking> bookings = new HashSet<>();
 }

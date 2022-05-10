@@ -81,6 +81,5 @@ public class JwtTokenProvider {
             return bearerToken.substring(7);
         }
         return null;
-        //return request.getHeader(authorizationHeader);
     }
 }

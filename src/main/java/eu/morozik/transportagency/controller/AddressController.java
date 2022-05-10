@@ -1,17 +1,13 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.AddressService;
-import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.dto.AddressDto;
-import eu.morozik.transportagency.dto.ContentDto;
-import eu.morozik.transportagency.dto.DriverDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Locale;
 
 @RestController
 @RequiredArgsConstructor

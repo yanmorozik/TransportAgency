@@ -4,10 +4,8 @@ import eu.morozik.transportagency.api.dao.TypeTransportDao;
 import eu.morozik.transportagency.api.service.TypeTransportService;
 import eu.morozik.transportagency.converter.TypeTransportConverter;
 import eu.morozik.transportagency.dto.TypeTransportDto;
-import eu.morozik.transportagency.model.Transport;
 import eu.morozik.transportagency.model.TypeTransport;
 import eu.morozik.transportagency.specification.SearchCriteria;
-import eu.morozik.transportagency.specification.TransportSpecification;
 import eu.morozik.transportagency.specification.TypeTransportSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -52,7 +50,7 @@ public class TypeTransportServiceImpl implements TypeTransportService {
     @Transactional
     @Override
     public List<TypeTransportDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
-        TypeTransportSpecification typeTransportSpecification = new TypeTransportSpecification(new SearchCriteria(key,operation,value));
+        TypeTransportSpecification typeTransportSpecification = new TypeTransportSpecification(new SearchCriteria(key, operation, value));
         List<TypeTransport> typeTransports = typeTransportDao.findAll(typeTransportSpecification);
         return typeTransportConverter.convert(typeTransports);
     }

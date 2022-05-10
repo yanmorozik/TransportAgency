@@ -6,7 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TransportConverter extends Converter<Transport, TransportDto>{
+public class TransportConverter extends Converter<Transport, TransportDto> {
     public TransportConverter(ModelMapper modelMapper) {
         super(modelMapper);
     }

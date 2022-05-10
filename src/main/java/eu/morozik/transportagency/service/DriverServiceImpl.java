@@ -57,8 +57,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Transactional
     @Override
-    public List<DriverDto> findByAnyOneFieldWithSpecification(String key,String operation,String value) {
-        DriverSpecification driverSpecification = new DriverSpecification(new SearchCriteria(key,operation,value));
+    public List<DriverDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
+        DriverSpecification driverSpecification = new DriverSpecification(new SearchCriteria(key, operation, value));
         List<Driver> drivers = driverDao.findAll(driverSpecification);
         return driverConverter.convert(drivers);
     }

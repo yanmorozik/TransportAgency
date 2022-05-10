@@ -1,17 +1,13 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.BookingService;
-import eu.morozik.transportagency.dto.AddressDto;
 import eu.morozik.transportagency.dto.booking.BookingDto;
 import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -63,7 +59,7 @@ public class BookingController {
                                        @RequestParam(defaultValue = "31") String endDay,
                                        @RequestParam(defaultValue = "23") String endHour,
                                        @RequestParam(defaultValue = "59") String endMinute
-                                       ) {
+    ) {
         return bookingService.getByFilter(startYear,
                 startMonth,
                 startDay,

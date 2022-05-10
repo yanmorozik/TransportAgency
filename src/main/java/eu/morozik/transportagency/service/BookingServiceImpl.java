@@ -14,9 +14,6 @@ import eu.morozik.transportagency.model.Address;
 import eu.morozik.transportagency.model.Booking;
 import eu.morozik.transportagency.model.Transport;
 import eu.morozik.transportagency.model.User;
-import eu.morozik.transportagency.specification.AddressSpecification;
-import eu.morozik.transportagency.specification.BookingSpecification;
-import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,7 +36,6 @@ public class BookingServiceImpl implements BookingService {
     @Transactional
     @Override
     public BookingDto save(BookingWithRelationIdsDto bookingWithRelationIdsDto) {
-        //Booking booking = bookingConverter.convert(bookingWithRelationIdsDto);
         Booking response = bookingDao.save(reassignment(bookingWithRelationIdsDto));
         return bookingConverter.convert(response);
     }
@@ -83,8 +79,8 @@ public class BookingServiceImpl implements BookingService {
 
         List<BookingDto> bookingProtocols = bookingConverter.convert(bookings);
 
-        bookingProtocols = bookingProtocols.stream().filter(b1->b1.getBookingData().isAfter(startDate))
-                .filter(b2->b2.getDeliveryDate().isBefore(endDate))
+        bookingProtocols = bookingProtocols.stream().filter(b1 -> b1.getBookingData().isAfter(startDate))
+                .filter(b2 -> b2.getDeliveryDate().isBefore(endDate))
                 .collect(Collectors.toList());
 
         return bookingProtocols;

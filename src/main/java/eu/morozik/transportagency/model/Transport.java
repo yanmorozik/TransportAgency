@@ -47,35 +47,14 @@ public class Transport extends BaseEntity {
     )
     private Set<Driver> drivers = new HashSet<>();
 
-
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport",cascade = CascadeType.ALL,orphanRemoval = true)
-//    @ToString.Exclude
-//    private Set<Content> contents = new HashSet<>();
-
-//    @OneToOne(fetch = FetchType.LAZY,mappedBy = "transport",cascade = {
-//            CascadeType.DETACH,
-//            CascadeType.MERGE,
-//            CascadeType.REFRESH,
-//            CascadeType.PERSIST})
-//    @ToString.Exclude
-//    private Driver driver;
-
-    @ManyToOne(fetch = FetchType.LAZY/*, cascade = {
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-            CascadeType.PERSIST}*/)
-    @JoinColumn(name = "type_transport_id"/*, referencedColumnName = "id"*/)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_transport_id")
     private TypeTransport typeTransport;
 
     @Enumerated(EnumType.STRING)
     private PurposeTransport purposeTransport;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport", /*cascade = {
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-            CascadeType.PERSIST}*/cascade = {
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "transport", cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.REFRESH,

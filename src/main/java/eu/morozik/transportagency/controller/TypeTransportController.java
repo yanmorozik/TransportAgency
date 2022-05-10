@@ -1,11 +1,7 @@
 package eu.morozik.transportagency.controller;
 
-import eu.morozik.transportagency.api.service.TransportService;
 import eu.morozik.transportagency.api.service.TypeTransportService;
-import eu.morozik.transportagency.dto.DriverDto;
 import eu.morozik.transportagency.dto.TypeTransportDto;
-import eu.morozik.transportagency.dto.transport.TransportDto;
-import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -52,8 +48,8 @@ public class TypeTransportController {
 
     @GetMapping("/search")
     public List<TypeTransportDto> findAllByFirstNameWithSpecification(@RequestParam String key,
-                                                               @RequestParam String operation,
-                                                               @RequestParam String value) {
-        return typeTransportService.findByAnyOneFieldWithSpecification(key,operation,value);
+                                                                      @RequestParam String operation,
+                                                                      @RequestParam String value) {
+        return typeTransportService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

@@ -3,10 +3,7 @@ package eu.morozik.transportagency.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -30,11 +27,7 @@ public class Booking extends BaseEntity {
     @JoinColumn(name = "transport_id")
     private Transport transport;
 
-    @OneToOne(fetch = FetchType.LAZY/*,cascade = {
-            CascadeType.DETACH,
-            CascadeType.MERGE,
-            CascadeType.REFRESH,
-            CascadeType.PERSIST},orphanRemoval = true*/)
+    @OneToOne(fetch = FetchType.LAZY)
     private Address address;
 
 }

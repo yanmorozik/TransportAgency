@@ -1,6 +1,5 @@
 package eu.morozik.transportagency.api.service;
 
-import eu.morozik.transportagency.dto.TypeTransportDto;
 import eu.morozik.transportagency.dto.UserDto;
 import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
 
@@ -15,8 +14,6 @@ public interface UserService {
     UserDto update(UserWithRelationIdsDto userWithRelationIdsDto);
 
     void deleteById(Long id);
-
-    UserDto findByFirstName(String firstname);
 
     UserDto register(UserDto userDto);
 

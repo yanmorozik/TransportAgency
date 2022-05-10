@@ -22,6 +22,6 @@ public class Driver extends BaseEntity {
     @Column(name = "surname")
     private String surname;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "drivers",cascade = CascadeType.ALL)
-    private Set<Transport> transports= new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "drivers", cascade = CascadeType.ALL)
+    private Set<Transport> transports = new HashSet<>();
 }

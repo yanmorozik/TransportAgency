@@ -32,7 +32,7 @@ public class ContentServiceImpl implements ContentService {
     @Transactional
     @Override
     public ContentDto findById(Long id) throws Exception {
-            Content response = contentDao.findById(id).orElseThrow(Exception::new);
+        Content response = contentDao.findById(id).orElseThrow(Exception::new);
         return contentConverter.convert(response);
     }
 
@@ -42,6 +42,7 @@ public class ContentServiceImpl implements ContentService {
         List<Content> contents = contentDao.findAll();
         return contentConverter.convert(contents);
     }
+
     @Transactional
     @Override
     public void deleteById(Long id) {
@@ -51,7 +52,7 @@ public class ContentServiceImpl implements ContentService {
     @Transactional
     @Override
     public List<ContentDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
-        ContentSpecification contentSpecification = new ContentSpecification(new SearchCriteria(key,operation,value));
+        ContentSpecification contentSpecification = new ContentSpecification(new SearchCriteria(key, operation, value));
         List<Content> contents = contentDao.findAll(contentSpecification);
         return contentConverter.convert(contents);
     }

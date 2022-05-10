@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContentDao extends JpaRepository<Content,Long>, JpaSpecificationExecutor<Content> {
+public interface ContentDao extends JpaRepository<Content, Long>, JpaSpecificationExecutor<Content> {
 }

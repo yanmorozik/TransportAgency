@@ -33,6 +33,6 @@ public class Content extends BaseEntity {
     @Column(name = "entity_name")
     private String entityName;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "contents",cascade = CascadeType.ALL)
-    private Set<Transport> transports=new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "contents", cascade = CascadeType.ALL)
+    private Set<Transport> transports = new HashSet<>();
 }

@@ -10,18 +10,18 @@ import eu.morozik.transportagency.converter.TransportConverterWithRelationIdsDto
 import eu.morozik.transportagency.dto.transport.TransportDto;
 import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 import eu.morozik.transportagency.exception.NotFoundException;
-import eu.morozik.transportagency.model.*;
+import eu.morozik.transportagency.model.Content;
+import eu.morozik.transportagency.model.Driver;
+import eu.morozik.transportagency.model.Transport;
+import eu.morozik.transportagency.model.TypeTransport;
 import eu.morozik.transportagency.model.enums.PurposeTransport;
-import eu.morozik.transportagency.specification.DriverSpecification;
 import eu.morozik.transportagency.specification.SearchCriteria;
 import eu.morozik.transportagency.specification.TransportSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -66,7 +66,7 @@ public class TransportServiceImpl implements TransportService {
     @Transactional
     @Override
     public List<TransportDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
-        TransportSpecification transportSpecification = new TransportSpecification(new SearchCriteria(key,operation,value));
+        TransportSpecification transportSpecification = new TransportSpecification(new SearchCriteria(key, operation, value));
         List<Transport> transports = transportDao.findAll(transportSpecification);
         return transportConverter.convert(transports);
     }

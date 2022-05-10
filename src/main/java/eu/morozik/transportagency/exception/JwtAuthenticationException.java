@@ -3,7 +3,6 @@ package eu.morozik.transportagency.exception;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Getter
 public class JwtAuthenticationException extends AuthenticationException {

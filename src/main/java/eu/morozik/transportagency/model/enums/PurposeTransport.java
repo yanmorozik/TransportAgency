@@ -6,13 +6,13 @@ public enum PurposeTransport {
     PASSENGER,
     MIXED;
 
-    public static PurposeTransport getPurposeTransport(Long i){
-        if (i==1)
+    public static PurposeTransport getPurposeTransport(Long i) {
+        if (i == 1)
             return CARGO;
-        if (i==2)
+        if (i == 2)
             return PASSENGER;
-        if (i==3)
+        if (i == 3)
             return MIXED;
-            return null;
+        return null;
     }
 }

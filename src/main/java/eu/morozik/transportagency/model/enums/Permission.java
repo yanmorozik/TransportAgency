@@ -1,6 +1,5 @@
 package eu.morozik.transportagency.model.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter

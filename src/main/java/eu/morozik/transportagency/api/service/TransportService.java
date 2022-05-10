@@ -1,6 +1,5 @@
 package eu.morozik.transportagency.api.service;
 
-import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.transport.TransportDto;
 import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 

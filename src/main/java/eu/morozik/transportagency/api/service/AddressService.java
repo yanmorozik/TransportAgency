@@ -1,8 +1,6 @@
 package eu.morozik.transportagency.api.service;
 
-import eu.morozik.transportagency.api.dao.AddressDao;
 import eu.morozik.transportagency.dto.AddressDto;
-import eu.morozik.transportagency.dto.ContentDto;
 
 import java.util.List;
 
