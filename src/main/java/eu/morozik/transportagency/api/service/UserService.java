@@ -1,5 +1,6 @@
 package eu.morozik.transportagency.api.service;
 
+import eu.morozik.transportagency.dto.TypeTransportDto;
 import eu.morozik.transportagency.dto.UserDto;
 import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
 
@@ -18,4 +19,6 @@ public interface UserService {
     UserDto findByFirstName(String firstname);
 
     UserDto register(UserDto userDto);
+
+    List<UserDto> findByAnyOneFieldWithSpecification(String key, String operation, String value);
 }

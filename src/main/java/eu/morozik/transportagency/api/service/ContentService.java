@@ -14,5 +14,5 @@ public interface ContentService {
 
     void deleteById(Long id);
 
-    List<ContentDto> findByAnyFieldWithSpecification(String key, String operation, String value);
+    List<ContentDto> findByAnyOneFieldWithSpecification(String key, String operation, String value);
 }

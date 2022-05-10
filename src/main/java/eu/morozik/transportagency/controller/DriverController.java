@@ -55,10 +55,10 @@ public class DriverController {
         return driverService.findByFirstName(firstName);
     }
 
-    @GetMapping("/findAllByFirstNameInSpecificationWithSpecification")
+    @GetMapping("/search")
     public List<DriverDto> findAllByFirstNameWithSpecification(@RequestParam String key,
                                                                @RequestParam String operation,
                                                                @RequestParam String value) {
-        return driverService.findAllByFirstNameWithSpecification(key,operation,value);
+        return driverService.findByAnyOneFieldWithSpecification(key,operation,value);
     }
 }

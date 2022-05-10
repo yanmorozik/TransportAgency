@@ -14,4 +14,6 @@ public interface TypeTransportService {
     List<TypeTransportDto> findAll();
 
     void deleteById(Long id);
+
+    List<TypeTransportDto> findByAnyOneFieldWithSpecification(String key, String operation, String value);
 }

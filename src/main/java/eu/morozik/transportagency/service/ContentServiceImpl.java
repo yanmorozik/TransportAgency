@@ -6,7 +6,7 @@ import eu.morozik.transportagency.converter.ContentConverter;
 import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.model.Content;
 import eu.morozik.transportagency.specification.SearchCriteria;
-import eu.morozik.transportagency.specification.contentspecification.ContentSpecification;
+import eu.morozik.transportagency.specification.ContentSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,7 +50,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Transactional
     @Override
-    public List<ContentDto> findByAnyFieldWithSpecification(String key,String operation,String value) {
+    public List<ContentDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
         ContentSpecification contentSpecification = new ContentSpecification(new SearchCriteria(key,operation,value));
         List<Content> contents = contentDao.findAll(contentSpecification);
         return contentConverter.convert(contents);

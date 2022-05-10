@@ -7,7 +7,11 @@ import eu.morozik.transportagency.converter.AddressConverter;
 import eu.morozik.transportagency.converter.DriverConverter;
 import eu.morozik.transportagency.dto.AddressDto;
 import eu.morozik.transportagency.model.Address;
+import eu.morozik.transportagency.model.Content;
 import eu.morozik.transportagency.model.Driver;
+import eu.morozik.transportagency.specification.AddressSpecification;
+import eu.morozik.transportagency.specification.ContentSpecification;
+import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,5 +58,13 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public void deleteById(Long id) {
         addressDao.deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public List<AddressDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
+        AddressSpecification addressSpecification = new AddressSpecification(new SearchCriteria(key,operation,value));
+        List<Address> addresses = addressDao.findAll(addressSpecification);
+        return addressConverter.convert(addresses);
     }
 }

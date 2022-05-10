@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DriverDao extends JpaRepository<Driver,Long>, JpaSpecificationExecutor<Driver> {
-
     Driver findByFirstName(String firstName);
-
 }

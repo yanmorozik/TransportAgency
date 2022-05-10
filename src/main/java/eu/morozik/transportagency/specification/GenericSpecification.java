@@ -1,8 +1,7 @@
-package eu.morozik.transportagency.specification.contentspecification;
+package eu.morozik.transportagency.specification;
 
-import eu.morozik.transportagency.model.Content;
+import eu.morozik.transportagency.model.BaseEntity;
 import eu.morozik.transportagency.model.Driver;
-import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,12 +13,12 @@ import javax.persistence.criteria.Root;
 
 @Data
 @AllArgsConstructor
-public class ContentSpecification implements Specification<Content> {
+public class GenericSpecification <T extends BaseEntity> implements Specification<T> {
 
     private SearchCriteria criteria;
 
     @Override
-    public Predicate toPredicate (Root<Content> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
+    public Predicate toPredicate (Root<T> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
 
         if (criteria.getOperation().equalsIgnoreCase(">")) {
             return builder.greaterThanOrEqualTo(

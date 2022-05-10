@@ -12,6 +12,9 @@ import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 import eu.morozik.transportagency.exception.NotFoundException;
 import eu.morozik.transportagency.model.*;
 import eu.morozik.transportagency.model.enums.PurposeTransport;
+import eu.morozik.transportagency.specification.DriverSpecification;
+import eu.morozik.transportagency.specification.SearchCriteria;
+import eu.morozik.transportagency.specification.TransportSpecification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -58,6 +61,14 @@ public class TransportServiceImpl implements TransportService {
     @Override
     public void deleteById(Long id) {
         transportDao.deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public List<TransportDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
+        TransportSpecification transportSpecification = new TransportSpecification(new SearchCriteria(key,operation,value));
+        List<Transport> transports = transportDao.findAll(transportSpecification);
+        return transportConverter.convert(transports);
     }
 
 

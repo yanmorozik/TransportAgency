@@ -14,11 +14,16 @@ import eu.morozik.transportagency.model.Address;
 import eu.morozik.transportagency.model.Booking;
 import eu.morozik.transportagency.model.Transport;
 import eu.morozik.transportagency.model.User;
+import eu.morozik.transportagency.specification.AddressSpecification;
+import eu.morozik.transportagency.specification.BookingSpecification;
+import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -59,6 +64,31 @@ public class BookingServiceImpl implements BookingService {
         bookingDao.deleteById(id);
     }
 
+    @Override
+    public List<BookingDto> getByFilter(String startYear, String startMonth, String startDay, String startHour, String startMinute, String endYear, String endMonth, String endDay, String endHour, String endMinute) {
+
+        LocalDateTime startDate = LocalDateTime.of(Integer.parseInt(startYear),
+                Integer.parseInt(startMonth),
+                Integer.parseInt(startDay),
+                Integer.parseInt(startHour),
+                Integer.parseInt(startMinute));
+
+        LocalDateTime endDate = LocalDateTime.of(Integer.parseInt(endYear),
+                Integer.parseInt(endMonth),
+                Integer.parseInt(endDay),
+                Integer.parseInt(endHour),
+                Integer.parseInt(endMinute));
+
+        List<Booking> bookings = bookingDao.findAll();
+
+        List<BookingDto> bookingProtocols = bookingConverter.convert(bookings);
+
+        bookingProtocols = bookingProtocols.stream().filter(b1->b1.getBookingData().isAfter(startDate))
+                .filter(b2->b2.getDeliveryDate().isBefore(endDate))
+                .collect(Collectors.toList());
+
+        return bookingProtocols;
+    }
 
     public Booking reassignment(BookingWithRelationIdsDto bookingWithRelationIdsDto) {
         final Booking booking = bookingWithRelationConverter.convert(bookingWithRelationIdsDto);

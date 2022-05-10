@@ -2,27 +2,21 @@ package eu.morozik.transportagency.service;
 
 import eu.morozik.transportagency.api.dao.UserDao;
 import eu.morozik.transportagency.api.service.UserService;
-import eu.morozik.transportagency.controller.UserConverterWithRelationIdsDto;
+import eu.morozik.transportagency.converter.UserConverterWithRelationIdsDto;
 import eu.morozik.transportagency.converter.UserConverter;
 import eu.morozik.transportagency.dto.UserDto;
 import eu.morozik.transportagency.dto.UserWithRelationIdsDto;
-import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
-import eu.morozik.transportagency.exception.NotFoundException;
 import eu.morozik.transportagency.model.*;
-import eu.morozik.transportagency.model.enums.PurposeTransport;
 import eu.morozik.transportagency.model.enums.Role;
 import eu.morozik.transportagency.model.enums.Status;
-import liquibase.pro.packaged.A;
+import eu.morozik.transportagency.specification.SearchCriteria;
+import eu.morozik.transportagency.specification.UserSpecification;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -79,6 +73,14 @@ public class UserServiceImpl implements UserService {
         userDao.save(user);
 
         return userConverter.convert(user);
+    }
+
+    @Transactional
+    @Override
+    public List<UserDto> findByAnyOneFieldWithSpecification(String key, String operation, String value) {
+        UserSpecification userSpecification = new UserSpecification(new SearchCriteria(key,operation,value));
+        List<User> users = userDao.findAll(userSpecification);
+        return userConverter.convert(users);
     }
 
     public User reassignment(UserWithRelationIdsDto userWithRelationIdsDto) {

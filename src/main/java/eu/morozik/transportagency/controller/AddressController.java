@@ -3,6 +3,7 @@ package eu.morozik.transportagency.controller;
 import eu.morozik.transportagency.api.service.AddressService;
 import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.dto.AddressDto;
+import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.DriverDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @RestController
 @RequiredArgsConstructor
@@ -47,5 +49,13 @@ public class AddressController {
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         addressService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search")
+    @PreAuthorize("hasAuthority('drivers:read')")
+    public List<AddressDto> findByAnyFieldWithSpecification(@RequestParam String key,
+                                                            @RequestParam String operation,
+                                                            @RequestParam String value) {
+        return addressService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

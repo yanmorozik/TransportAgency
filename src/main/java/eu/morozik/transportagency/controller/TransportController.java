@@ -2,6 +2,7 @@ package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.BookingService;
 import eu.morozik.transportagency.api.service.TransportService;
+import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.booking.BookingDto;
 import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import eu.morozik.transportagency.dto.transport.TransportDto;
@@ -50,5 +51,13 @@ public class TransportController {
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         transportService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search")
+    @PreAuthorize("hasAuthority('drivers:read')")
+    public List<TransportDto> findByAnyFieldWithSpecification(@RequestParam String key,
+                                                            @RequestParam String operation,
+                                                            @RequestParam String value) {
+        return transportService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

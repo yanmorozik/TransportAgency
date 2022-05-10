@@ -1,13 +1,17 @@
 package eu.morozik.transportagency.controller;
 
 import eu.morozik.transportagency.api.service.BookingService;
+import eu.morozik.transportagency.dto.AddressDto;
 import eu.morozik.transportagency.dto.booking.BookingDto;
 import eu.morozik.transportagency.dto.booking.BookingWithRelationIdsDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -45,5 +49,31 @@ public class BookingController {
     public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         bookingService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search")
+    @PreAuthorize("hasAuthority('drivers:read')")
+    public List<BookingDto> getByFiler(@RequestParam(defaultValue = "1") String startYear,
+                                       @RequestParam(defaultValue = "1") String startMonth,
+                                       @RequestParam(defaultValue = "1") String startDay,
+                                       @RequestParam(defaultValue = "1") String startHour,
+                                       @RequestParam(defaultValue = "1") String startMinute,
+                                       @RequestParam(defaultValue = "2099") String endYear,
+                                       @RequestParam(defaultValue = "12") String endMonth,
+                                       @RequestParam(defaultValue = "31") String endDay,
+                                       @RequestParam(defaultValue = "23") String endHour,
+                                       @RequestParam(defaultValue = "59") String endMinute
+                                       ) {
+        return bookingService.getByFilter(startYear,
+                startMonth,
+                startDay,
+                startHour,
+                startMinute,
+                endYear,
+                endMonth,
+                endDay,
+                endHour,
+                endMinute
+        );
     }
 }

@@ -1,5 +1,6 @@
 package eu.morozik.transportagency.api.service;
 
+import eu.morozik.transportagency.dto.ContentDto;
 import eu.morozik.transportagency.dto.transport.TransportDto;
 import eu.morozik.transportagency.dto.transport.TransportWithRelationIdsDto;
 
@@ -14,4 +15,7 @@ public interface TransportService {
     List<TransportDto> findAll();
 
     void deleteById(Long id);
+
+    List<TransportDto> findByAnyOneFieldWithSpecification(String key, String operation, String value);
+
 }

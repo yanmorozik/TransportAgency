@@ -2,6 +2,7 @@ package eu.morozik.transportagency.api.service;
 
 import eu.morozik.transportagency.api.dao.AddressDao;
 import eu.morozik.transportagency.dto.AddressDto;
+import eu.morozik.transportagency.dto.ContentDto;
 
 import java.util.List;
 
@@ -12,8 +13,7 @@ public interface AddressService {
 
     List<AddressDto> findAll();
 
-//    AddressDto update (AddressDto addressDto);
-
     void deleteById(Long id);
 
+    List<AddressDto> findByAnyOneFieldWithSpecification(String key, String operation, String value);
 }

@@ -47,11 +47,11 @@ public class ContentController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/findByAnyFieldWithSpecification")
+    @GetMapping("/search")
     @PreAuthorize("hasAuthority('drivers:read')")
     public List<ContentDto> findByAnyFieldWithSpecification(@RequestParam String key,
                                                             @RequestParam String operation,
                                                             @RequestParam String value) {
-        return contentService.findByAnyFieldWithSpecification(key, operation, value);
+        return contentService.findByAnyOneFieldWithSpecification(key, operation, value);
     }
 }

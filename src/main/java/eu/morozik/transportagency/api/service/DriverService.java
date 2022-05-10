@@ -16,5 +16,5 @@ public interface DriverService {
 
     DriverDto findByFirstName(String firstname);
 
-    List<DriverDto> findAllByFirstNameWithSpecification(String key,String operation,String value) ;
+    List<DriverDto> findByAnyOneFieldWithSpecification(String key,String operation,String value) ;
 }

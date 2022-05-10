@@ -4,14 +4,9 @@ import eu.morozik.transportagency.api.dao.DriverDao;
 import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.converter.DriverConverter;
 import eu.morozik.transportagency.dto.DriverDto;
-import eu.morozik.transportagency.model.Driver;
-import eu.morozik.transportagency.specification.SearchCriteria;
-import eu.morozik.transportagency.specification.driverspecification.DriverSpecification;
-import org.hibernate.mapping.Collection;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 

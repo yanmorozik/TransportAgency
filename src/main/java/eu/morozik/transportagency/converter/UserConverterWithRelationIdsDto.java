@@ -1,4 +1,4 @@
-package eu.morozik.transportagency.controller;
+package eu.morozik.transportagency.converter;
 
 import eu.morozik.transportagency.converter.Converter;
 import eu.morozik.transportagency.dto.UserDto;

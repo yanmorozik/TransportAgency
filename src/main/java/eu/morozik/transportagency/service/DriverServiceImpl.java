@@ -5,7 +5,7 @@ import eu.morozik.transportagency.api.service.DriverService;
 import eu.morozik.transportagency.converter.DriverConverter;
 import eu.morozik.transportagency.dto.DriverDto;
 import eu.morozik.transportagency.model.Driver;
-import eu.morozik.transportagency.specification.driverspecification.DriverSpecification;
+import eu.morozik.transportagency.specification.DriverSpecification;
 import eu.morozik.transportagency.specification.SearchCriteria;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -57,7 +57,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Transactional
     @Override
-    public List<DriverDto> findAllByFirstNameWithSpecification(String key,String operation,String value) {
+    public List<DriverDto> findByAnyOneFieldWithSpecification(String key,String operation,String value) {
         DriverSpecification driverSpecification = new DriverSpecification(new SearchCriteria(key,operation,value));
         List<Driver> drivers = driverDao.findAll(driverSpecification);
         return driverConverter.convert(drivers);
